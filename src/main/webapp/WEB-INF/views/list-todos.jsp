@@ -9,7 +9,8 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				Hi <strong>${name}</strong> Your Todos are: <br />
+			<h6>Hi <strong>${name}</strong></h6>
+		    Your Todos are: <br />
 	
 				<table class="table">
 					<caption>Your Todos</caption>
@@ -26,6 +27,7 @@
 						 	<td>${todo.desc}</td>
 						 	<td>${todo.targetDate}</td>
 						 	<td>${todo.done}</td>
+						 	<td><a href="/delete-todo?id=${todo.id}" class="btn btn-danger">Delete</a></td>
 						 </tr>
 						</c:forEach>
 					</tbody>
