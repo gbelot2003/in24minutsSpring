@@ -3,6 +3,7 @@
 <title>Yahoo!!</title>
 </head>
 <body>
-Welcome ${name} and ${pass}
+Welcome ${name}!!! <br />
+Now, you can <a href="list-todos">Manager your Todo</a>
 </body>
 </html>
