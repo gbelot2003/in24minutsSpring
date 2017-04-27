@@ -1,3 +1,4 @@
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <html>
 <head>
 	<title>Yahoo!!</title>
@@ -9,13 +10,17 @@
 		<div class="row">
 			<div class="col-md-12">
 				<h1>Add a Todo</h1>
-				<div class="form-input">
-					<form method="post">
-						<input class="form-control" name="desc" type="text" />
-						<input class="btn btn-primary" type="submit"  value="Enviar"/>
-					</form>		
-				</div>
-				
+
+					<form:form method="post" commandName="todo">
+						<div class="form-group">
+							<form:label path="desc">Description</form:label>
+							<form:input path="desc" type="text" class="form-control" required="required"/>
+							<form:errors path="desc" cssClass="text-warning"></form:errors>
+						</div>
+						<div class="form-group">
+							<input class="btn btn-success" type="submit"  value="Enviar"/>
+						</div>
+					</form:form>
 			</div>
 		</div>
 	</div>
