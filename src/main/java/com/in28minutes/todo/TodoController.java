@@ -1,5 +1,8 @@
 package com.in28minutes.todo;
 
+import com.in28minutes.exceptions.ExceptionController;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.security.core.Authentication;
@@ -10,10 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -27,6 +27,7 @@ public class TodoController {
 	@Autowired
 	TodoService service;
 
+	private Log logger = LogFactory.getLog(ExceptionController.class);
     private String retriveLoggedinUserName() {
         return "gbelot";
     }
@@ -96,9 +97,10 @@ public class TodoController {
 	@RequestMapping(value = "/update-todo", method = RequestMethod.GET)
 	public String updateTodo(ModelMap model, @RequestParam int id)
 	{
-		Todo todo = service.retrieveTodo(id);
+		throw new RuntimeException("Dummy Exception");
+		/**Todo todo = service.retrieveTodo(id);
 		model.addAttribute("todo", todo);
-		return "todo";
+		return "todo";**/
 	}
 
 	@RequestMapping(value = "/update-todo", method = RequestMethod.POST)
@@ -113,5 +115,10 @@ public class TodoController {
 		model.clear();
 		return "redirect:list-todos";
 	}
-	
+
+	@ExceptionHandler(value = Exception.class)
+	public String handleError(HttpServletRequest req, Exception exception) {
+		logger.error("Request: " + req.getRequestURL() + " raised " + exception);
+		return "error-todos";
+	}
 }
