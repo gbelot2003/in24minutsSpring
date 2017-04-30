@@ -1,11 +1,8 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <html>
-<head>
-	<title>Yahoo!!</title>
-	<title>Yahoo!!</title>
-	<link href="webjars/bootstrap/3.3.5/css/bootstrap.min.css" 	rel="stylesheet">
-</head>
+<%@include file="communs/header.jspf" %>
 <body>
+	<%@include file="communs/navigation.jspf" %>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
@@ -29,5 +26,6 @@
 			</div>
 		</div>
 	</div>
+	<%@include file="communs/footer.jspf" %>
 </body>
 </html>

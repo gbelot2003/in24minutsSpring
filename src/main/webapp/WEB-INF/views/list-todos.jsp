@@ -1,11 +1,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <html>
-<head>
-	<title>Yahoo!!</title>
-	<link href="webjars/bootstrap/3.3.5/css/bootstrap.min.css" 	rel="stylesheet">
-</head>
+<%@include file="communs/header.jspf" %>
 <body>
+	<%@include file="communs/navigation.jspf" %>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
@@ -44,9 +42,6 @@
 			</div>
 		</div>
 	</div>
-
-	
-	<script src="webjars/jquery/1.9.1/jquery.min.js"></script>
-	<script src="webjars/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<%@include file="communs/footer.jspf" %>
 </body>
 </html>
